@@ -7,12 +7,20 @@
             var userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
             if (/android/i.test(userAgent)) {
+                sendAnalyticsEvent('Android App Redirected');
                 window.location.href = "https://play.google.com/store/apps/details?id=com.byjus.thelearningapp&pcampaignid=web_share";
             } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                sendAnalyticsEvent('iOS App Redirected');
                 window.location.href = "https://apps.apple.com/in/app/byjus-the-learning-app/id1015059076";
             } else {
+                sendAnalyticsEvent('Website Redirected');
                 window.location.href = "https://byjus.com/byjus-the-learning-app/";
             }
+        }
+
+        function sendAnalyticsEvent(eventName) {
+            // Replace '293037074' with your actual Google Analytics Tracking ID
+            ga('send', 'event', 'Redirect', eventName);
         }
 
         // Call the function when the page loads
@@ -20,6 +28,6 @@
     </script>
 </head>
 <body>
-    <!-- No Content now :-) -->
+    <!-- No Content :-)  -->
 </body>
 </html>
