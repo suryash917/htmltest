@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <script>
+        function redirectToApp() {
+            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+            if (/android/i.test(userAgent)) {
+                window.location.href = "https://play.google.com/store/apps/details?id=com.byjus.thelearningapp&pcampaignid=web_share";
+            } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                window.location.href = "https://apps.apple.com/in/app/byjus-the-learning-app/id1015059076";
+            } else {
+                window.location.href = "https://byjus.com/byjus-the-learning-app/";
+            }
+        }
+
+        // Call the function when the page loads
+        window.onload = redirectToApp;
+    </script>
+</head>
+<body>
+    <!-- Content of your page, if any -->
+</body>
+</html>
